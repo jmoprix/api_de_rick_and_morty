@@ -1,0 +1,19 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+      "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    padding: 5rem;
+  }
+  
+  .resident-card {
+    border: 1px solid black;
+    padding: 1rem 1.5rem;
+  }
+  button {
+    padding: 0.25rem 1rem;
+  }
