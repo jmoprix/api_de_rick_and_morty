@@ -41,7 +41,7 @@ button {
 .todo{
   z-index: -200;
   position: relative;
-  background: radial-gradient(circle at top,rgba(3, 242, 11, 0.7) 1%,rgba(47, 30, 30, 0.4) 10%, #090a0f 18%), url("/public/wallpaperbetter\ \(4\).jpg") no-repeat top center ;
+  background: radial-gradient(circle at top,rgba(3, 242, 11, 0.7) 1%,rgba(47, 30, 30, 0.4) 10%, #090a0f 18%), url("/wallpaperbetter\ \(4\).jpg") no-repeat top center ;
 }
 
 .search{
