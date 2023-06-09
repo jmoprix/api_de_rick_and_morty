@@ -33,7 +33,7 @@ function App() {
       .catch((error) => console.error(error))
   }
 
-  const residentPerPage = 10
+  const residentPerPage = 8
   const indexOfLastResident = residentPerPage * currentPage
   const indexOfFirstResident = indexOfLastResident - residentPerPage
   const currenResidents = residents.slice(
@@ -63,74 +63,76 @@ function App() {
   }
 
   return (
-    <div className='todo' id='todo'>
-      <div className='head1'>
-      </div>
+    <div className='fondo'>
       <div className='head'>
-        <h1>Rick and Morty</h1>
       </div>
-      <div className='container'>
-        <div className='animation'>
-          <div className="fondoStars" id="fondoStars">
-            <div className='stars' id="stars"></div>
-            <div className='stars2' id="stars2"></div>
-            <div className='stars3' id="stars3"></div>
-          </div>
-          <div className="fondoStars1" id="fondoStars">
-            <div className='stars' id="stars"></div>
-            <div className='stars2' id="stars2"></div>
-            <div className='stars3' id="stars3"></div>
-          </div>
-          <div className="fondoStars2" id="fondoStars">
-            <div className='stars' id="stars"></div>
-            <div className='stars2' id="stars2"></div>
-            <div className='stars3' id="stars3"></div>
-          </div>
-          <div className='search'>
-            <h1>{location.name}</h1>
-            <input
-              type='text'
-              onChange={e => getLocationsFiltered(e.target.value)}
-            />
-            <select
-              name='locations'
-              id='locations'
-              onChange={e => setIdLocation(e.target.value)}
-            >
-              {
-                locationResults.map((location) => (
-                  <option value={location.id}>{location.name}</option>
-                ))
-              }
-            </select>
-            {
-              currenResidents.map(resident => (
-                <ResidentInfoDos
-                  key={resident.id}
-                  residentData={resident}
-                />
-              ))
-            }
-
-            <button
-              onClick={() => pagination(currentPage - 1)}
-              disabled={currentPage === 1}
-            >
-              Prev
-            </button>
-            {/*[1, 2, 3].map((number) => (<button>{number}</button>))*/}
-
-            <button
-              onClick={() => pagination(currentPage + 1)}
-              disabled={currentPage === lastPage}
-            >
-              Next
-            </button>
-
-          </div>
+      <div className='datos'>
+        <div className='b-title'>
+          <h1 className='title'>{location.name}</h1>
         </div>
+        <input
+          placeholder='Escribe y elige'
+          className='input'
+          type='text'
+          onChange={e => getLocationsFiltered(e.target.value)}
+        />
+        <select
+          className='select'
+          name='locations'
+          id='locations'
+          onChange={e => setIdLocation(e.target.value)}
+        >
+          {
+            locationResults.map((location) => (
+              <option value={location.id}>{location.name}</option>
+            ))
+          }
+        </select>
       </div>
-    </div >
+      <div className='botones'>
+        <button
+          onClick={() => pagination(currentPage - 1)}
+          disabled={currentPage === 1}
+        >
+          Prev
+        </button>
+
+        <button
+          onClick={() => pagination(currentPage + 1)}
+          disabled={currentPage === lastPage}
+        >
+          Next
+        </button>
+      </div>
+      <div className='card-main'>
+        {
+          currenResidents.map(resident => (
+            <ResidentInfoDos
+              key={resident.id}
+              residentData={resident}
+            />
+          ))
+        }
+      </div>
+      <div className='botones'>
+
+        <button
+          onClick={() => pagination(currentPage - 1)}
+          disabled={currentPage === 1}
+        >
+          Prev
+        </button>
+
+        <button
+          onClick={() => pagination(currentPage + 1)}
+          disabled={currentPage === lastPage}
+        >
+          Next
+        </button>
+
+      </div>
+
+    </div>
   )
 }
 
